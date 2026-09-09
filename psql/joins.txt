@@ -1,0 +1,137 @@
+A JOIN is used to combine rows from two or more tables based on a related column.
+
+For example, suppose we have these two tables:
+
+customers
+id	name
+1	Anu
+2	Rahul
+3	Neha
+
+orders
+
+id	    customer_id	  product
+101	            1	  Laptop
+102	            2	  Phone
+103	            1	  Mouse
+
+Here, customers.id and orders.customer_id are related.
+
+1. INNER JOIN
+
+Returns only matching rows from both tables.
+
+SELECT customers.name, orders.product
+FROM customers
+INNER JOIN orders
+ON customers.id = orders.customer_id;
+
+
+Result:-
+
+name	product
+Anu	    Laptop
+Rahul	Phone
+Anu	    Mouse
+
+Neha is not included because she has no order.
+
+Short form:-
+
+SELECT c.name, o.product
+FROM customers c
+JOIN orders o
+ON c.id = o.customer_id;
+
+JOIN by itself means INNER JOIN.
+
+2. LEFT JOIN
+
+Returns all rows from the left table, even if there is no matching row in the right table.
+
+SELECT c.name, o.product
+FROM customers c
+LEFT JOIN orders o
+ON c.id = o.customer_id;
+
+Result
+
+name	product
+Anu	    Laptop
+Anu	    Mouse
+Rahul	Phone
+Neha	NULL
+
+Neha is included because customers is the left table.
+
+3. RIGHT JOIN
+
+Returns all rows from the right table, even if there is no match in the left table.
+
+SELECT c.name, o.product
+FROM customers c
+RIGHT JOIN orders o
+ON c.id = o.customer_id;
+
+Usually, developers use LEFT JOIN more often because you can simply change the order of the tables if needed.
+
+4. FULL OUTER JOIN
+
+Returns all rows from both tables.
+
+Matching rows are combined, and unmatched rows contain NULL.
+
+SELECT c.name, o.product
+FROM customers c
+FULL OUTER JOIN orders o
+ON c.id = o.customer_id;
+
+Conceptually:
+
+Customers + Matching Orders + Unmatched Customers + Unmatched Orders
+
+5. CROSS JOIN
+
+Combines every row of the first table with every row of the second table.
+
+SELECT c.name, o.product
+FROM customers c
+CROSS JOIN orders o;
+
+If:
+
+customers = 3 rows
+orders    = 3 rows
+
+Then:
+
+3 × 3 = 9 rows
+
+It does not require an ON condition.
+
+6. SELF JOIN
+
+A table is joined with itself.
+
+For example, an employee table:
+
+id	name	manager_id
+1	Anu	     NULL
+2	Rahul	  1
+3	Neha	  1
+
+We can find each employee's manager:
+
+SELECT 
+    e.name AS employee,
+    m.name AS manager
+FROM employees e
+LEFT JOIN employees m
+ON e.manager_id = m.id;
+
+Result:
+
+employee	manager
+Anu	         NULL
+Rahul	     Anu
+Neha	     Anu

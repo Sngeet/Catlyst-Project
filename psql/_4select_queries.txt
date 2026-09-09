@@ -1,0 +1,164 @@
+1. Select all columns:-
+
+SELECT * FROM students;
+
+* means all columns.
+
+2. Select specific columns:-
+
+SELECT name, age FROM students;
+
+Output:
+
+name   age
+Anu    21
+Rahul  22
+Meera  20
+Arun   23
+
+3. Select with WHERE:-
+
+Used to filter records.
+
+SELECT * FROM students WHERE age > 21;
+
+Returns students whose age is greater than 21.
+
+4. Using multiple conditions:-
+
+AND:-
+
+SELECT * FROM students WHERE 
+course ='Python' AND mark > 80;
+
+Both conditions must be true.
+
+OR:-
+
+SELECT * FROM students WHERE 
+course = 'Python' OR course = 'Django';
+
+Either condition can be true.
+
+5. ORDER BY:-
+
+Sort the results.
+
+Ascending:-
+
+SELECT * FROM students ORDER BY 
+mark ASC;
+
+Descending:-
+
+SELECT * FROM students ORDER BY 
+mark DESC;
+
+ASC = low → high
+DESC = high → low
+
+6. DISTINCT :-
+
+Remove duplicate values.
+
+SELECT DISTINCT course FROM students;
+
+Output:
+
+Python
+Django
+React
+
+7. LIMIT:-
+
+Get only a specific number of rows.
+
+SELECT * FROM students LIMIT 2;
+
+Returns the first 2 rows.
+
+8. LIKE :-
+
+Search for a pattern.
+
+SELECT * FROM students WHERE 
+name LIKE 'A%';
+
+A% means name starts with A.
+
+Examples:
+
+WHERE name LIKE '%a';
+
+Ends with a.
+
+WHERE name LIKE '%a%';
+
+Contains a.
+
+9. IN :-
+
+Check multiple possible values.
+
+SELECT * FROM students
+WHERE course IN ('Python', 'Django');
+
+Same idea as:
+WHERE course = 'Python' OR course = 'Django'
+
+10. BETWEEN :-
+
+Find values within a range.
+
+SELECT * FROM students
+WHERE mark BETWEEN 70 AND 90;
+
+Returns marks from 70 to 90.
+
+11. Column alias using AS :-
+
+SELECT name AS student_name, mark AS score
+
+FROM students;
+
+The output column names become student_name and score.
+
+12. Aggregate functions with SELECT :-
+
+SELECT COUNT(*) FROM students;
+
+Count students.
+
+SELECT AVG(mark) FROM students;
+
+Average mark.
+
+SELECT MAX(mark) FROM students;
+
+Highest mark.
+
+SELECT MIN(mark) FROM students;
+
+Lowest mark.
+
+SELECT SUM(mark) FROM students;
+
+Total marks.
+
+Important SELECT syntax
+
+A basic SELECT query follows this pattern:
+
+SELECT column1, column2
+FROM table_name
+WHERE condition
+ORDER BY column
+LIMIT number;
+
+For example:
+
+SELECT name, mark
+FROM students
+WHERE mark > 70
+ORDER BY mark DESC
+LIMIT 3;

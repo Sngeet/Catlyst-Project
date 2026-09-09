@@ -1,0 +1,89 @@
+1. Connect to PostgreSQL
+
+psql -U postgres
+
+If you need to specify a database:
+
+psql -U postgres -d mydatabase
+
+2. psql commands
+
+These start with \ and are not SQL commands.
+
+Command	Purpose
+\l	List all databases
+\c database_name	Connect to a database
+\dt	List tables
+\d table_name	Show table structure
+\dn	List schemas
+\du	List users/roles
+\q	Quit psql
+\?	Show psql commands
+\h	SQL help
+
+For example:
+
+postgres=# \l
+
+Connect to a database:
+
+postgres=# \c school
+
+See tables:
+
+school=# \dt
+
+See a table's columns:
+
+school=# \d students
+
+3. SQL commands inside psql
+
+Create a database:-
+
+CREATE DATABASE school;
+
+Create a table:-
+
+CREATE TABLE students (
+    id SERIAL PRIMARY KEY,
+    name VARCHAR(50),
+    age INT
+);
+
+Insert data:-
+
+INSERT INTO students (name, age)
+VALUES ('John', 20);
+
+View data:-
+
+SELECT * FROM students;
+
+Filter:-
+
+SELECT * FROM students
+WHERE age >= 18;
+
+Update:-
+
+UPDATE students
+SET age = 21
+WHERE id = 1;
+
+Delete:-
+
+DELETE FROM students
+WHERE id = 1;
+
+Most important for you to remember
+
+\l       → databases
+\c       → connect database
+\dt      → tables
+\d       → table structure
+SELECT   → view data
+INSERT   → add data
+UPDATE   → change data
+DELETE   → remove data
+\q       → exit psql
