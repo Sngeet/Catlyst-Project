@@ -1,0 +1,250 @@
+Modules and Packages in Python
+
+Modules and packages help organize Python code into reusable, maintainable components.
+
+1. What is a Module?
+
+A module is a single Python file (.py) that contains variables, functions, classes, or executable code.
+
+Example
+
+math_operations.py
+
+def add(a, b):
+    return a + b
+
+def subtract(a, b):
+    return a - b
+
+PI = 3.14159
+
+main.py
+
+import math_operations
+
+print(math_operations.add(10, 5))
+print(math_operations.PI)
+
+Output
+
+15
+3.14159
+
+ways to import modules:-
+
+In Python, there are several common ways to import modules.
+
+1. Import the complete module:-
+
+import math
+
+
+print(math.sqrt(25))
+print(math.pi)
+
+Here, math is imported, and we access its functions using math.function().
+
+2.Import a specific function:-
+
+from math import sqrt
+
+
+print(sqrt(25))
+
+You don't need to write math.sqrt() because only sqrt was imported.
+
+3. Import multiple functions:-
+
+from math import sqrt, factorial
+
+
+print(sqrt(25))
+print(factorial(5))
+
+4. Import everything from a module:-
+
+from math import *
+
+
+print(sqrt(25))
+print(pi)
+
+* means import all available names.
+
+Usually, this is not recommended because it can make it difficult to know where a function came from.
+
+5. Import with an alias:-
+
+You can give a module a shorter name.
+
+eg:-
+
+import math as m
+
+
+print(m.sqrt(25))
+print(m.pi)
+
+Here:
+
+math → m
+
+6. Import a function with an alias:-
+
+from math import factorial as f
+
+
+print(f(5))
+
+Here:
+
+factorial → f
+
+7. Import your own Python file:-
+
+Suppose you have:
+
+calculator.py
+
+def add(a, b):
+    return a + b
+
+And another file:
+
+main.py
+
+import calculator
+
+
+print(calculator.add(10, 20))
+
+Output:
+
+30
+
+Or:
+
+from calculator import add
+
+
+print(add(10, 20))
+
+Quick comparison:-
+
+Method	             Example
+Complete module	     import math
+Specific function	 from math import sqrt
+Multiple functions	 from math import sqrt, pi
+Everything	         from math import *
+Module alias	     import math as m
+Function alias	     from math import sqrt as s
+
+
+3. Types of Modules
+
+a) Built-in Modules
+
+Python provides many built-in modules.
+
+Examples:
+
+math
+random
+os
+sys
+datetime
+json
+
+Example:
+
+import random
+
+print(random.randint(1, 10))
+
+b) User-defined Modules
+
+Modules created by the programmer.
+
+Example:
+
+# greetings.py
+def hello(name):
+    print("Hello", name)
+
+# main.py
+
+import greetings
+
+greetings.hello("me")
+
+4. What is a Package?
+
+A package is a collection of related modules stored in a directory.
+
+Example structure:
+
+mypackage/
+│
+├── __init__.py
+├── calculator.py
+└── geometry.py
+calculator.py
+def add(a, b):
+    return a + b
+geometry.py
+def area_square(side):
+    return side * side
+main.py
+from mypackage import calculator
+from mypackage import geometry
+
+print(calculator.add(5, 3))
+print(geometry.area_square(4))
+
+Output
+
+8
+16
+
+5. What is __init__.py?
+
+__init__.py is a special file that marks a directory as a Python package (especially in older Python versions). It can also run initialization code when the package is imported.
+
+Example:
+
+mypackage/
+│
+├── __init__.py
+├── module1.py
+└── module2.py
+
+Example __init__.py:
+
+print("Package imported")
+
+6. Module vs Package
+Module	                                                     Package
+A single .py file	                                  A directory containing modules
+Contains functions, classes, variables	              Contains multiple related modules
+Easier for small programs	                          Better for large projects
+Example: math.py	                                  Example: numpy, django
+
+7. Common Built-in Modules:-
+
+Module	                  Purpose
+math	                  Mathematical functions
+random	                  Random numbers
+os	                      Operating system operations
+sys	                      Python interpreter information
+datetime	              Date and time handling
+json	                  JSON encoding and decoding
+re	                      Regular expressions
+collections	              Specialized container data types
+
+8. Advantages of Modules and Packages:-
+
+Reuse code without rewriting it.
+Keep code organized.
+Make large projects easier to maintain.
+Reduce code duplication.
+Allow multiple developers to work on different parts of the same project.

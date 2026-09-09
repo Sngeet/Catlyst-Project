@@ -1,0 +1,6 @@
+f=open('13 aug.txt','w')
+f.write("mango\napple\ngrape"  )
+f=open('13 aug.txt','r')
+content=f.read()
+print(content)
+f.close()

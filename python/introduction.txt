@@ -1,0 +1,68 @@
+
+what is python:-
+
+python is highlevel general purpose programming language and known for its
+simplcity and readability
+
+intvented by guido van rossom in 1991
+
+speciality:-
+
+Easy to read and learn
+oop concept based
+highlevel language ( is a type of programming language designed to be easy for humans to read and write and working 
+                    as a bridge between human and computer)
+interpreted programming language
+large library
+dynamically typed programming language a=10 b='hlo'
+protable( platform independant )
+large community support
+
+
+variable:
+
+Data types:-
+
+1 Numeric Datatypes:-
+
+    i) int   a=10
+    ii) Float a=30.333
+    iii) complex numbers 
+
+2 String type:-
+    string included   "ggj" a='cv gfgfhgh'
+
+3 Boolean type:-
+    Boolean true or false  
+
+4 sequence type:- collections
+
+    i)List a=[1,2,3,4,4,4,'word'] [] l=[1,2,3,4,4] 
+    ii)Tuple t=(1,2,3,4,'hlo') t=(1,)  ()
+
+5 Set type:-
+s=set() s={1,2,3,4,}
+
+6 mapping type:-
+    Dictionary d={'name':'rahul','class':3}
+    {key:value,key:value,key:value} {"name":"ajay","class":2}
+
+
+operators in python :-
+
+1 - Arithmatic operators (+ , - , * , / , % , ** , //)
+2 - Assignment operators (= += -= *= /=) sum+=1 sum+=1 sum=sum+1 a*=b a=a*b
+3 - Relational/Conditional operators ( <, > , <= , >= , ==,!=) a==b  a>b a<b a<=b
+4 - logical operators (and,or,not) 
+    and - both conditions are must be true then only and return true
+    or - only one condition must be true then it return true
+    not -it reverse the result and display
+5 - Identity operators ( is , is not)  print(s is str) 
+6 - Membership operators( in , not in)
+
+
+
+    sum+=i
+
+
+
